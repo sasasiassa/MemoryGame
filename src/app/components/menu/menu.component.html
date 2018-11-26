@@ -1,0 +1,11 @@
+<a routerLink="/home">Home</a>
+<br>
+<a *ngIf="isLoggedIn() == false" routerLink="/register">Register</a>
+<br *ngIf="isLoggedIn() == false">
+<a *ngIf="isLoggedIn() == false" routerLink="/login">Login</a>
+<br *ngIf="isLoggedIn() == false">
+<a>Feedbacks</a>
+<br>
+<a>Contact</a>
+<br>
+<a>About</a>

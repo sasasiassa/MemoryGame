@@ -1,0 +1,3 @@
+<app-game-board (gameOverEvent)="recieveGameOver()"></app-game-board>
+
+<button *ngIf="gameOver" (click)="refreshPage()">Reset Game</button><span *ngIf="gameOver">You win!</span>

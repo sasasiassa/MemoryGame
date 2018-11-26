@@ -1,0 +1,13 @@
+div {
+    height: 65%;
+    width: 50%;
+    background-image: url('../../../assets/images/youWin.png'); 
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+img {
+    height: 33%;
+    width: 14%;
+}

@@ -1,3 +1,14 @@
-<p>
-  layout works!
-</p>
+<div class="container-fluid w-100 h-100">
+    <div class="row w-100 no-gutters"> <!-- Header row -->
+        <div class="col">
+            <app-header></app-header>
+        </div>
+    </div>
+    <div class="row w-100 h85 no-gutters"> <!-- Middle row -->
+        <div class="col-1 "><app-menu></app-menu></div>
+        <div class="col-11 grey"><router-outlet></router-outlet></div>
+    </div>
+    <div class="row w-100 no-gutters h9"> <!-- Bottom row -->
+        <div class="col"><app-footer></app-footer></div>
+    </div>
+</div>

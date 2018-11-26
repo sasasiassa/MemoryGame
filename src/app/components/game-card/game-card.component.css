@@ -1,0 +1,19 @@
+div {
+    width: 14%;
+    height: 33%;
+    display: inline-block;
+    margin-bottom: 1px;
+    margin-right: 1px;
+}
+img {
+    height: 100%;
+    width: 100%;
+    
+}
+.black {
+    filter: brightness(0%);
+    
+}
+.opacity {
+    visibility: hidden;
+}

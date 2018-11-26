@@ -1,0 +1,37 @@
+<form #myForm="ngForm" (ngSubmit)="send()">
+    <div>
+        <input type="text" name="username" [(ngModel)]="register.userName"
+        placeholder="Username*" autofocus required #userName="ngModel" minlength="4" maxlength="15">
+        <div *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+            <span *ngIf="userName.errors.required">Missing Username</span>
+            <span *ngIf="userName.errors.minlength">Must be 4 characters or more.</span>
+        </div>
+    </div>
+    <div>
+        <input type="password" name="password" [(ngModel)]="register.password"
+        placeholder="Password*" required #password="ngModel" minlength="8" maxlength="20">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <span *ngIf="password.errors.required">Missing password</span>
+            <span *ngIf="password.errors.minlength">Must be 8 characters or more.</span>
+        </div>
+    </div>
+    <div>
+        <input type="text" name="fullname" [(ngModel)]="register.fullName"
+        placeholder="Full name*" required #fullname="ngModel">
+        <div *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)">
+            <span *ngIf="fullname.errors.required">Missing Full Name</span>
+        </div>
+    </div>
+    <div>
+        <input type="email" name="email" [(ngModel)]="register.email"
+        placeholder="Email"  #email="ngModel">
+        
+    </div>
+    <div>
+        <input type="date" name="birthdate" [(ngModel)]="register.bDay"
+        placeholder="BirthDate" #birthdate="ngModel">
+    </div>
+    <div>
+        <button [disabled]="myForm.form.invalid">Register</button>
+    </div>
+</form>

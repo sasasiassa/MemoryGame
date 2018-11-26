@@ -1,0 +1,11 @@
+<div>
+    <ng-container *ngFor="let i of arr">
+
+        <app-game-card (clickedNoEvent)="recieveClick($event)" imageName="{{i?.fileName}}" clickedNo="{{clickedNo}}"
+            imageID="{{i?.imgId}}" (imgIDEvent)="recieveID($event)" (gameOverEvent)="recieveGameOver()">
+
+        </app-game-card>
+
+    </ng-container>
+    <img src="../../../assets/images/bottomright.png">
+</div>

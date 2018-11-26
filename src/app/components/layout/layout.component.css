@@ -1,0 +1,12 @@
+.container-fluid {
+    padding: 0;
+}
+.h10 {
+    height: 9%;
+}
+.h85 {
+    height: 85%;
+}
+.grey {
+    background-color: lightgray;
+}
