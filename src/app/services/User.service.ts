@@ -9,10 +9,16 @@ import { Observable } from 'rxjs';
 export class UserService {
 
     constructor(private httpClient: HttpClient) { }
-    public getUserByDetails(username: string, password: string) {
+
+    public getUserByDetails(username: string, password: string) { // Get user by the details, for log in
         return this.httpClient.get<UserModel>(`http://localhost:51230/api/users/${username}/${password}`);
     }
-    public addUser(user: UserModel): Observable<UserModel> {
+
+    public getOneUser(id: number) { // Get one user
+        return this.httpClient.get<UserModel>(`http://localhost:51230/api/users/${id}`);
+    }
+
+    public addUser(user: UserModel): Observable<UserModel> { // Add a user when registered.
         return this.httpClient.post<UserModel>("http://localhost:51230/api/users", user)
     }
 }

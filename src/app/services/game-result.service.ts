@@ -11,12 +11,12 @@ export class GameResultService {
     constructor(public httpClient: HttpClient) { }
 
 
-    public getAllGameResults(): Observable<GameResultModel[]> {
+    public getAllGameResults(): Observable<GameResultModel[]> { // GET request for all the game results.
 
         return this.httpClient.get<GameResultModel[]>("http://localhost:51230/api/gameresults");
     }
 
-    public addGameResult(gameResult: GameResultModel): Observable<GameResultModel> {
+    public addGameResult(gameResult: GameResultModel): Observable<GameResultModel> { // Add a game result.
 
         return this.httpClient.post<GameResultModel>("http://localhost:51230/api/gameresults", gameResult);
     }

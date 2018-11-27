@@ -14,6 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { GamePageComponent } from '../components/game-page/game-page.component';
 import { GameBoardComponent } from '../components/game-board/game-board.component';
 import { GameCardComponent } from '../components/game-card/game-card.component';
+import { ScoresComponent } from '../components/scores/scores.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { GameCardComponent } from '../components/game-card/game-card.component';
     
   GameBoardComponent,
     
-  GameCardComponent],
+  GameCardComponent,
+    
+  ScoresComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

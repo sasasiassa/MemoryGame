@@ -1,0 +1,20 @@
+<!-- <div *ngFor="let i of gameResultArray">
+    <div>{{i.gameTime}}</div>
+    <div>{{findUserById(i.userId).userName}}</div>
+    <div>{{findUserById(i.userId).fullName}}</div>
+    <div>{{i.gameSpan}}</div>
+    <div>{{i.steps}}</div>
+
+</div> -->
+<div>
+    <table border="1">
+        <tr *ngFor="let i of gameResultArray">
+            <td><span>Game Date: </span>{{i?.gameTime | date}}</td>
+            <td><span>User name: </span>{{findUserById(i.userId)?.userName}}</td>
+            <td><span>Full Name: </span>{{findUserById(i.userId)?.fullName}}</td>
+            <td><span>Game span: </span>{{i?.gameSpan}}</td>
+            <td><span>Steps: </span>{{i?.steps}}</td>
+
+        </tr>
+    </table>
+</div>

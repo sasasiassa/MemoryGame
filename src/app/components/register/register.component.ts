@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserModel } from 'src/app/models/UserModel';
 import { UserService } from 'src/app/services/User.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-register',
@@ -9,24 +10,27 @@ import { UserService } from 'src/app/services/User.service';
 })
 export class RegisterComponent implements OnInit {
     public register: UserModel = new UserModel();
-    constructor(private userService: UserService) { }
+
+    constructor(private userService: UserService, public title: Title) { }
 
     ngOnInit() {
+        this.title.setTitle("Memory Game Register");
     }
-    public send(): void {
+    public send(): void { // Send the registration request
         let user: UserModel = this.register;
-        let observe = this.userService.getUserByDetails(user.userName, user.password);
+
+        let observe = this.userService.getUserByDetails(user.userName, user.password); // Take the username and password.
         observe.subscribe(s => {
-            if (!s) {
+            if (!s) { // If the user does not exist - add it
 
                 let observable = this.userService.addUser(user);
                 observable.subscribe(s => {
-                    alert('user added ' + s.userId);
+                    alert('Registered successfully!');
                 })
 
             }
-            else {
-                alert(`user already exists`);
+            else { // If the user exists, alert the user.
+                alert(`User already exists`);
             }
         })
 

@@ -11,7 +11,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
   }
-  public isLoggedIn(): boolean {
+  public isLoggedIn(): boolean { // Check if user is logged in, then show items in the menu accordingly.
       if(sessionStorage.getItem("LoggedIn") == "true") {
           return true;
       }
