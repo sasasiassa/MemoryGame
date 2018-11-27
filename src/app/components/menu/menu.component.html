@@ -1,15 +1,25 @@
-<a routerLink="/home">Home</a>
+<a routerLink="/home" routerLinkActive="activated">Home</a>
 <br>
-<a *ngIf="isLoggedIn() == false" routerLink="/register">Register</a>
+<br>
+<a *ngIf="isLoggedIn() == false" routerLink="/register" routerLinkActive="activated">Register</a>
 <br *ngIf="isLoggedIn() == false">
-<a *ngIf="isLoggedIn() == false" routerLink="/login">Login</a>
 <br *ngIf="isLoggedIn() == false">
-<a *ngIf="isLoggedIn()" routerLink="/game">Game</a>
+<a *ngIf="isLoggedIn() == false" routerLink="/login" routerLinkActive="activated">Login</a>
+<br *ngIf="isLoggedIn() == false">
+<br *ngIf="isLoggedIn() == false">
+<a *ngIf="isLoggedIn()" routerLink="/game" routerLinkActive="activated">Game</a>
 <br *ngIf="isLoggedIn()">
-<a>Feedbacks</a>
+<br *ngIf="isLoggedIn()">
+<a routerLink="/scores" routerLinkActive="activated">Scores</a>
 <br>
-<a routerLink="/scores">Scores</a>
 <br>
-<a>Contact</a>
+<a routerLink="/feedbacks" routerLinkActive="activated">Feedbacks</a>
 <br>
-<a>About</a>
+<br>
+<a routerLink="/contact-us" routerLinkActive="activated">Contact</a>
+<br>
+<br>
+<a routerLink="/leave-feedback" *ngIf="isLoggedIn()" routerLinkActive="activated">Leave Feedback</a>
+<br *ngIf="isLoggedIn()">
+<br *ngIf="isLoggedIn()">
+<a routerLink="/about" routerLinkActive="activated">About</a>

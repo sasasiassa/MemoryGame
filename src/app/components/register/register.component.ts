@@ -19,21 +19,21 @@ export class RegisterComponent implements OnInit {
     public send(): void { // Send the registration request
         let user: UserModel = this.register;
 
-        let observe = this.userService.getUserByDetails(user.userName, user.password); // Take the username and password.
-        observe.subscribe(s => {
-            if (!s) { // If the user does not exist - add it
-
-                let observable = this.userService.addUser(user);
-                observable.subscribe(s => {
-                    alert('Registered successfully!');
-                })
-
+        let observe = this.userService.getAllUsers().subscribe((s) => {
+            if (!s) {
+                return;
             }
-            else { // If the user exists, alert the user.
-                alert(`User already exists`);
+            else {
+                for (let i = 0; i < s.length; i++) {
+                    if(user.userName == s[i].userName) { // Check if user already exists
+                        return alert(`Username already exists`); 
+                    }
+                }
+                let observer = this.userService.addUser(user).subscribe((s) => { // If not, create the new user.
+                    alert(`User created successfully`);
+                })
             }
         })
 
     }
-
 }

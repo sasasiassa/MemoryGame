@@ -1,0 +1,15 @@
+<form #myForm="ngForm" (ngSubmit)="send()">
+    <div>
+        <span>Feedback Text: </span>
+        <br>
+        <textarea type="text" name="feedback" [(ngModel)]="feedbackModel.feedbackText" placeholder="Message.." required #message="ngModel" rows="7" cols="50" minlength="10">
+
+        </textarea>
+        <br>
+        <div *ngIf="message.invalid && (message.dirty || message.touched)">
+            <span *ngIf="message.errors.required">Missing Username</span>
+            <span *ngIf="message.errors.minlength">Must be 10 characters or more.</span>
+        </div>
+    </div>
+    <button [disabled]="myForm.form.invalid">Submit feedback</button>
+</form>

@@ -15,6 +15,11 @@ import { GamePageComponent } from '../components/game-page/game-page.component';
 import { GameBoardComponent } from '../components/game-board/game-board.component';
 import { GameCardComponent } from '../components/game-card/game-card.component';
 import { ScoresComponent } from '../components/scores/scores.component';
+import { LeaveFeedbackComponent } from '../components/leave-feedback/leave-feedback.component';
+import { FeedbacksComponent } from '../components/feedbacks/feedbacks.component';
+import { ContactComponent } from '../components/contact/contact.component';
+import { AboutComponent } from '../components/about/about.component';
+import { Page404Component } from '../components/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,17 @@ import { ScoresComponent } from '../components/scores/scores.component';
     
   GameCardComponent,
     
-  ScoresComponent],
+  ScoresComponent,
+    
+  LeaveFeedbackComponent,
+    
+  FeedbacksComponent,
+    
+  ContactComponent,
+    
+  AboutComponent,
+    
+  Page404Component],
   imports: [
     BrowserModule,
     AppRoutingModule,

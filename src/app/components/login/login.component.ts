@@ -19,23 +19,31 @@ export class LoginComponent implements OnInit {
         this.title.setTitle("Memory Game log in")
     }
     public login(a: string, b: string): void { // Log in function
-        let observable = this.userService.getUserByDetails(a, b);
-        observable.subscribe(s => {
-            if(!s) {
-                alert('Wrong username or password.');
-                return;
-            }
-            else if(a == s.userName && b == s.password) { // If the username and password are correct - log in.
-                sessionStorage.setItem("LoggedIn", "true");
-                sessionStorage.setItem("userID", `${s.userId}`);
-                this.router.navigate(['/home']);
-            }
-        })
+        a = a.toLowerCase();
+        this.getUserByDetails(a, b);
+
     }
     public redirect(): void {
-        if(sessionStorage.getItem("LoggedIn") == "true") {
+        if (sessionStorage.getItem("LoggedIn") == "true") {
             this.router.navigate(['/home'])
         }
+    }
+
+    public getUserByDetails(username: string, password: string) {
+        let observable = this.userService.getUserByDetails(username, password).subscribe((s) => { // Log in user
+            if (!s) { // If the details are wrong return this
+                alert("Wrong username or password");
+                return;
+            }
+
+            else if (s.userName.toLowerCase() === username.toLowerCase() && s.password === password) { // Otherwise log in.
+                sessionStorage.setItem("LoggedIn", "true");
+                sessionStorage.setItem("userID", `${s.userId}`);
+                this.redirect();
+                return;
+            }
+            
+        })
     }
 
 }

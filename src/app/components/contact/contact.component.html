@@ -1,0 +1,21 @@
+<form #myForm="ngForm" (ngSubmit)="send()">
+    <table>
+        <tr>
+            <td><span>Phone number: </span></td>
+            <td><input type="tel" name="phoneNumber" [(ngModel)]="contactModel.phoneNumber"></td>
+        </tr>
+        <tr>
+            <td><span>E-Mail: </span></td>
+            <td><input type="email" name="email" [(ngModel)]="contactModel.email"></td>
+        </tr>
+        <tr>
+            <td><span>Contact text: </span></td>
+            <td><textarea cols="22" rows="5" name="message" [(ngModel)]="contactModel.msg" minlength="10" required #message="ngModel"></textarea></td>
+            <td><div *ngIf="message.invalid && (message.dirty || message.touched)">
+                <span *ngIf="message.errors.required">Message is required</span>
+                <span *ngIf="message.errors.minlength">10 characters or more required.</span>
+            </div></td>
+        </tr>
+    </table>
+    <button [disabled]="myForm.form.invalid">Sumbit Contact</button>
+</form>

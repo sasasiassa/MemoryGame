@@ -1,0 +1,9 @@
+<div>
+    <table border="1">
+        <tr *ngFor="let i of feedbackArray">
+            <td><span>Feedback Time: </span>{{i.dateHour | date : 'short'}}</td>
+            <td><span>Username: </span>{{findUserById(i.userID)?.userName}}</td>
+            <td><span>Feedback Text: </span>{{i.feedbackText}}</td>
+        </tr>
+    </table>
+</div>
