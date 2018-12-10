@@ -2,11 +2,17 @@
     <table>
         <tr>
             <td><span>Phone number: </span></td>
-            <td><input type="tel" name="phoneNumber" [(ngModel)]="contactModel.phoneNumber"></td>
+            <td><input type="tel" name="phoneNumber" [(ngModel)]="contactModel.phoneNumber" pattern="[0-9]+" #phoneNumber="ngModel"></td>
+            <td><div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+                <span *ngIf="phoneNumber.errors.pattern">Must contain only numbers </span>
+            </div></td>
         </tr>
         <tr>
             <td><span>E-Mail: </span></td>
-            <td><input type="email" name="email" [(ngModel)]="contactModel.email"></td>
+            <td><input type="email" name="email" [(ngModel)]="contactModel.email" #email="ngModel" pattern="([0-9]|[a-z]|[A-Z])+@([0-9]|[a-z]|[A-Z])+\.([0-9]|[a-z]|[A-Z])+"></td>
+            <td><div *ngIf="email.invalid && (email.dirty || email.touched)">
+                <span *ngIf="email.errors.pattern">Please input a valid e-mail address</span>
+            </div></td>
         </tr>
         <tr>
             <td><span>Contact text: </span></td>
