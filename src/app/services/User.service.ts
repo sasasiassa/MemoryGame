@@ -10,11 +10,11 @@ export class UserService {
 
     constructor(private httpClient: HttpClient) { }
 
-    public getUserByDetails(username: string, password: string) { // Get user by the details, for log in
-        return this.httpClient.get<UserModel>(`http://localhost:51230/api/users/login?username=${username}&password=${password}`);
+    public getUserByDetails(user: UserModel) { // Get user by the details, for log in
+        return this.httpClient.post<UserModel>(`http://localhost:51230/api/users/login`, user);
     }
 
-    public getOneUser(id: number) { // Get one user
+    public getOneUser(id: number) { // Get one user by ID
         return this.httpClient.get<UserModel>(`http://localhost:51230/api/users/${id}`);
     }
 
@@ -23,6 +23,10 @@ export class UserService {
     }
 
     public addUser(user: UserModel): Observable<UserModel> { // Add a user when registered.
-        return this.httpClient.post<UserModel>("http://localhost:51230/api/users", user)
+        return this.httpClient.post<UserModel>("http://localhost:51230/api/users", user);
+    }
+    
+    public getUserDetailsById(id: number) { // Gets the user details by ID
+        return this.httpClient.get<UserModel>(`http://localhost:51230/api/users/${id}/user-details`);
     }
 }

@@ -3,6 +3,7 @@ import { AppRoutingModule } from 'src/app/modules/app-routing.module';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/User.service';
 import { Title } from '@angular/platform-browser';
+import { UserModel } from 'src/app/models/UserModel';
 
 @Component({
     selector: 'app-login',
@@ -26,11 +27,12 @@ export class LoginComponent implements OnInit {
     public redirect(): void {
         if (sessionStorage.getItem("LoggedIn") == "true") {
             this.router.navigate(['/home'])
+            window.location.reload();
         }
     }
 
     public getUserByDetails(username: string, password: string) {
-        let observable = this.userService.getUserByDetails(username, password).subscribe((s) => { // Log in user
+        let observable = this.userService.getUserByDetails(new UserModel(null, null, password, username)).subscribe((s) => { // Log in user
             if (!s) { // If the details are wrong return this
                 alert("Wrong username or password");
                 return;

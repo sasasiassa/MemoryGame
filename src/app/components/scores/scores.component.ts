@@ -25,7 +25,7 @@ export class ScoresComponent implements OnInit {
             }
             for(let i = 0; i < s.length; i++) { // loop over the array given and then fill the game result array with it.
                 this.gameResultArray[i] = s[i];
-                this.userService.getOneUser(this.gameResultArray[i].userId).subscribe((s) => { // Add a user for each userId
+                this.userService.getUserDetailsById(this.gameResultArray[i].userId).subscribe((s) => { // Add a user for each userId
                     if(!s) {
                         return;
                     }

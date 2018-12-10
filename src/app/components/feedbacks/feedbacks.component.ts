@@ -22,7 +22,7 @@ export class FeedbacksComponent implements OnInit {
         let observable = this.feedbackService.getAllFeedbacks().subscribe((s) => {
             this.feedbackArray = s; // Fill the array of feedbacks with feedbacks
             for(let i = 0; i < this.feedbackArray.length; i++) {
-                this.userService.getOneUser(this.feedbackArray[i].userID).subscribe((s) =>{ // Then find every user ID
+                this.userService.getUserDetailsById(this.feedbackArray[i].userID).subscribe((s) =>{ // Then find every user ID
                     if(!s) {
                         return;
                     }
@@ -33,7 +33,7 @@ export class FeedbacksComponent implements OnInit {
         this.title.setTitle("Feedbacks Page");
     }
     public findUserById(i: number): UserModel {
-        return this.userArray.find(o => o.userId === i); // Find the user attacked to the User ID.
+        return this.userArray.find(o => o.userId === i); // Find the user attached to the User ID.
     }
     
 }
